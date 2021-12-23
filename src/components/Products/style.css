@@ -1,0 +1,11 @@
+.item{
+  max-width: 30%;
+  margin: auto;
+}
+.products{
+  display: flex;
+  width: 100vw;
+}
+.img-product{
+  width: 100%;
+}
