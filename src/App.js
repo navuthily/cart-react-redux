@@ -1,21 +1,21 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./App.css";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
 
-import Navbar from "./components/Navbar";
-import Products from "./components/Products/index";
-import Cart from "./components/Cart/index";
+} from "react-router-dom";
+import "./App.css";
+import Login from "./components/Login";
+import PrivatePage from "./components/PrivatePage";
 
 function App() {
   return (
     <Router>
-      <div className="app">
-        <Navbar />
-        <Routes>
-          <Route exact path="/" element={<Products />} />
-          <Route exact path="/cart" element={<Cart />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route exact path="/login" element={<Login />} />
+        <Route path="/*" element={<PrivatePage />} />
+      </Routes>
     </Router>
   );
 }

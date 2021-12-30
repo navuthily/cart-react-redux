@@ -1,0 +1,9 @@
+form{width: 500px;
+margin: auto;}
+.ant-form{
+  margin: auto;
+}
+.login{
+  display: flex;
+  height: 100vh;
+}

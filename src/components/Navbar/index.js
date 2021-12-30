@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import "./styles.css";
-
-import { connect } from "react-redux";
-
-const Navbar = ({ cart }) => {
+import {
+LogoutOutlined
+} from "@ant-design/icons";
+import {useDispatch,useSelector } from "react-redux";
+import {
+  logOut
+} from "../../redux/Auth/actions";
+const Navbar = () => {
+  const navigate = useNavigate();
   const [cartCount, setCartCount] = useState(0);
-
+  const cart = useSelector((state) => state?.shop?.cart);
+  const dispatch = useDispatch();
   useEffect(() => {
     let count = 0;
     cart.forEach((item) => {
@@ -14,29 +20,34 @@ const Navbar = ({ cart }) => {
     });
     setCartCount(count);
   }, [cart, cartCount]);
+  function flogOut() {
+    dispatch(logOut());
+    navigate('login')
+  }
   return (
     <div className="nav">
       <Link to="/">
-        <h2 >Redux Shopping Cart</h2>
+        <h2>Redux Shopping Cart</h2>
       </Link>
-      <Link to="/cart">
-        <div >
-          <h3 >Cart</h3>
-          <img
-            src="https://image.flaticon.com/icons/svg/102/102276.svg"
-            alt="shopping cart"
-          />
-          <div >{cartCount}</div>
-        </div>
-      </Link>
+      <div className="right-nav">
+        <Link to="/cart">
+          <div>
+            <h3>Cart</h3>
+            <img
+              src="https://image.flaticon.com/icons/svg/102/102276.svg"
+              alt="shopping cart"
+            />
+            <div>{cartCount}</div>
+          </div>
+        </Link>
+        <button onClick={flogOut}>
+          <LogoutOutlined />
+        </button>
+      </div>
     </div>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    cart: state.shop.cart,
-  };
-};
 
-export default connect(mapStateToProps)(Navbar);
+
+export default Navbar;

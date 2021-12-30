@@ -6,6 +6,8 @@ import {
 import "./style.css";
 
 const Products = ({ products,addToCart }) => {
+  
+  
   return (
     <div className="products">
       {products.map((product) => (

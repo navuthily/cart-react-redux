@@ -1,3 +1,6 @@
 .nav{display: flex;
 justify-content: space-between;
 margin: 0 30px;}
+.right-nav{
+  display: flex;
+}

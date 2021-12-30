@@ -1,6 +1,5 @@
 import { ADD_TO_CART,REMOVE_FROM_CART,ADJUST_ITEM_QTY,LOAD_CURRENT_ITEM} from "./shopping-types";
 export const addToCart = (itemID) => {
-  console.log('add to carrt')
   return {
     type:ADD_TO_CART,
     payload: {

@@ -7,6 +7,7 @@ import {
 import "./styles.css";
 
 const Cart = ({ adjustQty, cart, removeFromCart }) => {
+
   return (
     <div className="cart">
       Cart:
@@ -26,7 +27,6 @@ const Cart = ({ adjustQty, cart, removeFromCart }) => {
                 value={item.qty}
                 onChange={(e) => {
                   adjustQty(item.id, e.target.value);
-                  console.log(item.id, e.target.value);
                 }}
               />
             </td>
